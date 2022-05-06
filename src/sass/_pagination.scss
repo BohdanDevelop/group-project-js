@@ -1,61 +1,52 @@
 .pagination.section {
   margin: 0 auto;
-  padding: 40px 0 60px 0;
-  //   @include mq(mobile-only) {
-  //     padding: 20px 0 40px 0;
-  //   }
-}
+  padding: 40px 0;
 
-// TUI styles. mention body to override library styles
-body .tui-pagination {
-  height: 40px;
-  margin: 0;
-}
-
-body .tui-pagination .tui-page-btn {
-  align-items: center;
-  height: 40px;
-  width: 40px;
-  padding: 0;
-  border: none;
-  border-radius: 5px;
-
-  //   @include font-style(12px, 500, 40px, null, $main-text-color);
-  text-align: center;
-
-  &.tui-prev,
-  &.tui-next {
-    background-color: #eee;
-    margin-right: 0;
-    margin-left: 0;
+  & .tui-page-btn.tui-first,
+  & .tui-page-btn.tui-last {
+    display: none;
   }
+  & .tui-pagination .tui-page-btn {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 5px;
 
-  &.tui-is-selected {
-    color: black;
-    background-color: skyblue;
+    @include font-style(12px, 500, 40px, null, black);
+  }
+  & .tui-pagination .tui-ico-ellip {
+    margin-top: 0;
+    vertical-align: middle;
+  }
+  & .tui-pagination .tui-is-selected {
+    color: $whiteColor;
+    background-color: $accentColor;
     border-left: none;
     border-right: none;
   }
 
-  & .tui-ico-ellip {
-    margin-top: 0;
-    vertical-align: middle;
+  & .tui-pagination .tui-ico-next {
+    width: 16px;
+    height: 16px;
+    background: url('../images/arrow-right.svg');
   }
 
-  &.tui-first,
-  &.tui-last {
-    display: none;
+  & .tui-pagination .tui-is-disabled .tui-ico-prev,
+  & .tui-pagination .tui-is-disabled .tui-ico-next {
+    width: 40px;
+    height: 40px;
+    background: #eee;
   }
-
-  & .tui-ico-prev {
-    background: none;
-    background: url('/images/icons.svg#icon-arrow-left');
+  & .tui-pagination .tui-ico-prev {
+    width: 16px;
+    height: 16px;
+    background: url('../images/arrow-left.svg');
   }
-
-  //   &.tui-prev-is-ellip,
-  //   &.tui-next-is-ellip {
-  //     @include mq(mobile-only) {
-  //       display: none;
-  //     }
-  //   }
+  & .tui-pagination .tui-prev {
+    margin-right: 0;
+  }
+  & .tui-pagination .tui-next {
+    margin-left: 0;
+  }
 }

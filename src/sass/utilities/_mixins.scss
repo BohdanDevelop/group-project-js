@@ -24,3 +24,28 @@
     @content;
   }
 }
+
+//этот миксин нужен для сокращения повторяющихся списков свойств шрифтов.
+//добавялем его в класс, в котором нужно описать свойства шрифта
+//use @include font-style(26px, 900, 1.61, null, $color-white);
+@mixin font-style($size: false, $weight: false, $lh: false, $ls: false, $color: false) {
+  @if $size {
+    font-size: $size;
+  }
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $lh {
+    line-height: $lh;
+  }
+
+  @if $ls {
+    letter-spacing: $ls;
+  }
+
+  @if $color {
+    color: $color;
+  }
+}
