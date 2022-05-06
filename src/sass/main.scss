@@ -4,10 +4,15 @@
  */
 
 // Стили для файла с примером HTML-фрагмента
+
+@import './utilities/hidden';
+@import './utilities/variables';
+@import './utilities/mixins';
+@import './utilities/container';
 @import './utilities/base';
 @import './footer';
 @import './gallery';
-@import 'goIt';
+@import './goIt';
 @import './header';
 @import './movieModal';
 @import './pagination';
