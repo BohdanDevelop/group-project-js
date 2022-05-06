@@ -1,0 +1,61 @@
+.pagination.section {
+  margin: 0 auto;
+  padding: 40px 0 60px 0;
+  //   @include mq(mobile-only) {
+  //     padding: 20px 0 40px 0;
+  //   }
+}
+
+//TUI styles. mention body to override library styles
+// body .tui-pagination {
+//   height: 40px;
+//   margin: 0;
+// }
+
+// body .tui-pagination .tui-page-btn {
+//   align-items: center;
+//   height: 40px;
+//   width: 40px;
+//   padding: 0;
+//   border: none;
+//   border-radius: 5px;
+
+//   @include font-style(12px, 500, 40px, null, $main-text-color);
+//   text-align: center;
+
+//   &.tui-prev,
+//   &.tui-next {
+//     background-color: $grey-btn-color;
+//     margin-right: 0;
+//     margin-left: 0;
+//   }
+
+//   &.tui-is-selected {
+//     color: $white-text-color;
+//     background-color: $accent-btn-color;
+//     border-left: none;
+//     border-right: none;
+//   }
+
+//   & .tui-ico-ellip {
+//     margin-top: 0;
+//     vertical-align: middle;
+//   }
+
+//   &.tui-first,
+//   &.tui-last {
+//     display: none;
+//   }
+
+//     & .tui-ico-prev {
+//   background: none;
+//   background: url('/images/icons.svg#icon-arrow');
+//     }
+
+//   &.tui-prev-is-ellip,
+//   &.tui-next-is-ellip {
+//     @include mq(mobile-only) {
+//       display: none;
+//     }
+//   }
+// }
