@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import fetchAPI from './js/fetch';
 
 // pagination markup and styles
 
@@ -12,3 +13,5 @@ pagination.on('afterMove', event => {
 });
 
 // console.log(pagination);
+
+console.log(fetchAPI(1).then(data => console.log(data.data.results)));
