@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import fetchAPI from './js/fetch';
 
 // pagination markup and styles
 
@@ -11,4 +12,8 @@ pagination.on('afterMove', event => {
   console.log('knock knock');
 });
 
-// console.log(pagination);
+// try fetch
+
+console.log(fetchAPI.fetchTrendingMovies(1).then(data => console.log(data.data.results)));
+
+console.log(fetchAPI.fetchGenres().then(data => console.log(data.data.genres)));
