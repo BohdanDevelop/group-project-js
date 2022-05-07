@@ -14,10 +14,13 @@ function onOpenMovieModal(e) {
 function onCloseMovieModal(e) {
   backdropRef.classList.remove('show');
   document.body.style.overflow = 'scroll';
+  document.removeEventListener('keydown', onCloseByEsc);
 }
 
 function onBackdropClick(e) {
-  if (e.target === backdropRef) return onCloseMovieModal();
+  if (e.target === backdropRef) {
+    onCloseMovieModal();
+  }
 }
 
 function onCloseByEsc(e) {

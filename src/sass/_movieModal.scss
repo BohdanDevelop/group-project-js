@@ -31,7 +31,7 @@
 }
 .modal {
   position: relative;
-  z-index: 2;
+  z-index: 999;
   width: 85vw;
   box-shadow: 16px 16px 8px 0px rgba(34, 60, 80, 0.2);
   background-color: $whiteColor;
@@ -97,9 +97,13 @@
   margin-bottom: 8px;
 }
 .film__info {
+  // width: 50%;
   min-width: 108px;
   color: $modalInfo;
   line-height: 1.33;
+  @include desk {
+    min-width: 152px;
+  }
 }
 .film__value {
   line-height: 1.33;
@@ -122,6 +126,9 @@
   font-weight: 500;
   line-height: 1.33;
   min-width: 108px;
+  @include desk {
+    min-width: 152px;
+  }
 }
 .film__description {
   margin-bottom: 20px;
