@@ -1,11 +1,15 @@
 .pagination.section {
   margin: 0 auto;
   padding: 40px 0;
+  @include mq(mobile-only) {
+    width: 280px;
+  }
 
   & .tui-page-btn.tui-first,
   & .tui-page-btn.tui-last {
     display: none;
   }
+
   & .tui-pagination .tui-page-btn {
     height: 40px;
     width: 40px;
@@ -14,6 +18,12 @@
     border-radius: 5px;
 
     @include font-style(12px, 500, 40px, null, black);
+    &.tui-last-child,
+    &.tui-prev-is-ellip {
+      @include mq(mobile-only) {
+        display: none;
+      }
+    }
   }
   & .tui-pagination .tui-ico-ellip {
     margin-top: 0;
