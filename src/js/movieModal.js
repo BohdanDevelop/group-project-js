@@ -3,12 +3,13 @@ const backdropRef = document.querySelector('.js-backdrop');
 const btnCloseModalRef = document.querySelector('.js-modal__close-btn');
 
 openModalRef.addEventListener('click', onOpenMovieModal);
-btnCloseModalRef.addEventListener('click', onCloseMovieModal);
-backdropRef.addEventListener('click', onBackdropClick);
 function onOpenMovieModal(e) {
   backdropRef.classList.add('show');
   document.body.style.overflow = 'hidden';
+
   document.addEventListener('keydown', onCloseByEsc);
+  btnCloseModalRef.addEventListener('click', onCloseMovieModal);
+  backdropRef.addEventListener('click', onBackdropClick);
 }
 
 function onCloseMovieModal(e) {
