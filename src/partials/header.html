@@ -1,0 +1,29 @@
+<header class="header" data-header> 
+    <div class="header-container">
+        <nav class="header-nav">
+            <a href="./index.html" class="logo">
+                <svg width="24" height="24" class="logo-icon">
+                    <use  href="images/icons.svg#icon-film" class="icon"></use>
+                </svg>
+                <span class="logo-text">Filmoteka</span>
+            </a>
+            <ul class="links">
+                <li class="links-item current-page" data-home>HOME</li>
+                <li class="links-item" data-library>MY LIBRARY</li>
+            </ul>
+        </nav>
+
+        <div class="library-buttons">
+            <button type="button" class="header-button active-button" data-watched>WATCHED</button>
+            <button type="button" class="header-button" data-queue>QUEUE</button>
+        </div>
+
+        <form class="search-form">
+            <input class="search-field" placeholder="Movie search" type="text">
+            <svg width="12" height="12" class="search-icon">
+                <use href="images/icons.svg#icon-search"></use>
+            </svg> 
+        </form>
+        <span class="message"></span>
+    </div>
+</header>
