@@ -1,8 +1,9 @@
 .pagination.section {
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 60px 0;
   @include mq(mobile-only) {
     width: 280px;
+    padding: 40px 0;
   }
 
   & .tui-page-btn.tui-first,
@@ -48,14 +49,17 @@
     height: 40px;
     background: #eee;
   }
+
   & .tui-pagination .tui-ico-prev {
     width: 16px;
     height: 16px;
     background: url('../images/arrow-left.svg');
   }
+
   & .tui-pagination .tui-prev {
     margin-right: 0;
   }
+
   & .tui-pagination .tui-next {
     margin-left: 0;
   }
