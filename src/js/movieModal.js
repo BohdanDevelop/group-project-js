@@ -16,6 +16,8 @@ function onCloseMovieModal(e) {
   backdropRef.classList.remove('show');
   document.body.style.overflow = 'scroll';
   document.removeEventListener('keydown', onCloseByEsc);
+  btnCloseModalRef.removeEventListener('click', onCloseMovieModal);
+  backdropRef.removeEventListener('click', onBackdropClick);
 }
 
 function onBackdropClick(e) {
