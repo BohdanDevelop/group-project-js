@@ -1,0 +1,34 @@
+const openModalRef = document.querySelector('.openModal');
+const backdropRef = document.querySelector('.js-backdrop');
+const btnCloseModalRef = document.querySelector('.js-modal__close-btn');
+
+openModalRef.addEventListener('click', onOpenMovieModal);
+function onOpenMovieModal(e) {
+  backdropRef.classList.add('show');
+  document.body.style.overflow = 'hidden';
+
+  document.addEventListener('keydown', onCloseByEsc);
+  btnCloseModalRef.addEventListener('click', onCloseMovieModal);
+  backdropRef.addEventListener('click', onBackdropClick);
+}
+
+function onCloseMovieModal(e) {
+  backdropRef.classList.remove('show');
+  document.body.style.overflow = 'scroll';
+  document.removeEventListener('keydown', onCloseByEsc);
+  btnCloseModalRef.removeEventListener('click', onCloseMovieModal);
+  backdropRef.removeEventListener('click', onBackdropClick);
+}
+
+function onBackdropClick(e) {
+  if (e.target === backdropRef) {
+    onCloseMovieModal();
+  }
+}
+
+function onCloseByEsc(e) {
+  if (e.code === 'Escape') {
+    onCloseMovieModal();
+  }
+}
+export { openModalRef };
