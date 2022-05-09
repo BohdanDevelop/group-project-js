@@ -48,4 +48,16 @@ export default class FetchAPI {
       console.log(error);
     }
   }
+  static async fetchMovieByID(id) {
+    try {
+      const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}`, {
+        params: {
+          api_key: this.API_KEY,
+        },
+      });
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }

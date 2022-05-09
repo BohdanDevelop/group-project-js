@@ -11,7 +11,9 @@ import 'tui-pagination/dist/tui-pagination.css';
 import * as TUI from './js/pagination';
 import { MarkTrending } from './js/markup';
 
-import { openModalRef } from './js/movieModal';
+import './js/markup';
+import './js/movieModal';
+import './js/upBtn';
 
 preloaderHide();
 

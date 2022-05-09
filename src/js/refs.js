@@ -8,4 +8,8 @@ export const refs = {
   queueBtn: document.querySelector('[data-queue]'),
   message: document.querySelector('.message'),
   preloader: document.querySelector('.loading'),
+  gallery: document.querySelector('.gallery-list'),
+  backdrop: document.querySelector('.js-backdrop'),
+  modal: document.querySelector('.modal__wrapper'),
+  closeModalBtn: document.querySelector('.js-modal__close-btn'),
 };

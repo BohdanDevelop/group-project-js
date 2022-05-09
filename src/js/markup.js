@@ -1,8 +1,9 @@
 import FetchAPI from './fetch';
+import { refs } from './refs';
 
 const formEl = document.querySelector('.search-form');
 const inputEl = document.querySelector('input[name="searchQuery"]');
-const galleryEl = document.querySelector('.gallery-list');
+
 const BASE_URL_URL = 'https://www.themoviedb.org/t/p/w500';
 
 export async function fetchTrending() {
@@ -20,7 +21,7 @@ export async function fetchTrending() {
         </li>`;
     })
     .join('');
-  galleryEl.innerHTML = markup;
+  refs.gallery.innerHTML = markup;
 }
 
 fetchTrending();
