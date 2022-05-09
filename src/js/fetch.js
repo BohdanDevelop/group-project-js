@@ -8,6 +8,7 @@ export default class FetchAPI {
   static BASE_URL_SEARCH = refs.BASE_URL_SEARCH;
 
   static async fetchTrendingMovies(page) {
+    refs.spinner.classList.add('is-visible');
     try {
       const response = await axios.get(this.BASE_URL_TRENDING, {
         params: {
@@ -18,6 +19,10 @@ export default class FetchAPI {
       return response;
     } catch (error) {
       console.log(error);
+    } finally {
+      setTimeout(function () {
+        refs.spinner.classList.remove('is-visible');
+      }, 700);
     }
   }
 
@@ -36,6 +41,7 @@ export default class FetchAPI {
 
   static async fetchByQuery(page, query) {
     try {
+      refs.spinner.classList.add('is-visible');
       const response = await axios.get(this.BASE_URL_SEARCH, {
         params: {
           api_key: this.API_KEY,
@@ -58,6 +64,8 @@ export default class FetchAPI {
       return response;
     } catch (err) {
       console.log(err);
+    } finally {
+      refs.spinner.classList.remove('is-visible');
     }
   }
 }
