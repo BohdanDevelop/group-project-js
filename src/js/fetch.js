@@ -60,4 +60,19 @@ export default class FetchAPI {
       console.log(err);
     }
   }
+
+  static async fetchYoutube(id) {
+    try {
+      let response = await axios.get(`https://api.themoviedb.org/3//movie/${id}/videos`, {
+        params: {
+          api_key: this.API_KEY,
+          language: 'en - US',
+        },
+      });
+      // console.log(data);
+      return response;
+    } catch (error) {
+      console.log('error');
+    }
+  }
 }
