@@ -1,290 +1,299 @@
 .header {
-    height: 216px;
-    width: 100%;
-    
-    background-size: cover;
-    background-position: center;
+  height: 216px;
+  width: 100%;
+  padding-top: 40px;
 
-    @include less-tab {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-         url(/images/phone/headerBG.png);
-        @media (min-device-pixel-ratio: 2),
-            (-webkit-min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-             url(/images/phone/2x/headerBG@2.png);
-        }
+  background-size: cover;
+  background-position: center;
+
+  @include less-tab {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+      url(/images/phone/headerBG.png);
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+        url(/images/phone/2x/headerBG@2.png);
     }
-    @include tab {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-         url(/images/tablet/headerBG.png);
-        @media (min-device-pixel-ratio: 2),
-            (-webkit-min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-            url(/images/tablet/2x/headerBG@2.png);
-        }
+  }
+  @include tab {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+      url(/images/tablet/headerBG.png);
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+        url(/images/tablet/2x/headerBG@2.png);
     }
-    @include desk {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-         url(/images/pc/headerBG.png);
-            @media (min-device-pixel-ratio: 2),
-                (-webkit-min-device-pixel-ratio: 2),
-                (min-resolution: 192dpi),
-                (min-resolution: 2dppx) {
-                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-                 url(/images/pc/2x/headerBG@2.png);
-        }  
-    }   
+  }
+  @include desk {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+      url(/images/pc/headerBG.png);
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+        url(/images/pc/2x/headerBG@2.png);
+    }
+  }
 }
 
 .library {
-    height: 216px;
-    width: 100%;
+  height: 216px;
+  width: 100%;
 
-    background-size: cover;
-    background-position: center;
+  background-size: cover;
+  background-position: center;
 
-    @include less-tab {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-        url(/images/phone/libraryMob@1x.png);
-        @media (min-device-pixel-ratio: 2),
-            (-webkit-min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-            url(/images/phone/2x/libraryMob@2x.png);
-        }
+  @include less-tab {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+      url(/images/phone/libraryMob@1x.png);
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+        url(/images/phone/2x/libraryMob@2x.png);
     }
-    @include tab {
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-        url(/images/tablet/libraryTab@1x.png);
-        @media (min-device-pixel-ratio: 2),
-            (-webkit-min-device-pixel-ratio: 2),
-            (min-resolution: 192dpi),
-            (min-resolution: 2dppx) {
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-            url(/images/tablet/2x/libraryTab@2x.png);
-        }
+  }
+  @include tab {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+      url(/images/tablet/libraryTab@1x.png);
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+        url(/images/tablet/2x/libraryTab@2x.png);
     }
-    @include desk {
-        background-image:linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-         url(/images/pc/libraryDesk@1x.png);
-            @media (min-device-pixel-ratio: 2),
-                (-webkit-min-device-pixel-ratio: 2),
-                (min-resolution: 192dpi),
-                (min-resolution: 2dppx) {
-                background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
-                 url(/images/pc/2x/libraryDesk@2x.png);
-        }  
+  }
+  @include desk {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+      url(/images/pc/libraryDesk@1x.png);
+    @media (min-device-pixel-ratio: 2),
+      (-webkit-min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+        url(/images/pc/2x/libraryDesk@2x.png);
     }
+  }
 }
 
 .header-container {
-    position: relative;
+  position: relative;
 
-    height: 216px;
-    padding-left: 32px;
-    padding-right: 32px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-top: 40px;
+  height: 216px;
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 40px;
 
-        @include less-tab {
-            height: 230px;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
+  @include less-tab {
+    height: 230px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
-        @include mobile {
-            width: 480px; 
-        }
+  @include mobile {
+    width: 480px;
+  }
 
-        @include tab {
-            width: 768px;
-        }
+  @include tab {
+    width: 768px;
+  }
 
-        @include desk {  
-            width: 1024px;
-           
-    }    
+  @include desk {
+    width: 1024px;
+  }
 }
 
 .header-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-    display: flex;
-    align-items: baseline;
+  display: flex;
+  align-items: baseline;
 }
 
 .logo-icon {
-    display: block;
- 
+  display: block;
 }
 
 .icon {
-    display: block;
-       
+  display: block;
 }
 
 .logo-text {
-    font-family: $mainFont;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
-    color: $whiteColor;
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  color: $whiteColor;
 
-    margin-left: 10px;
-        @include less-tab {
-            display: none;
-        }
+  margin-left: 10px;
+  @include less-tab {
+    display: none;
+  }
 }
 
 .links {
-    display: flex; 
+  display: flex;
 }
 
 .links-item {
-    position: relative;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    height: 14px;
-    color: $whiteColor;
-    cursor: pointer;  
-        &:last-child {
-            margin-left: 36px;
-        }
+  position: relative;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+  color: $whiteColor;
+  cursor: pointer;
+  &:last-child {
+    margin-left: 36px;
+  }
 }
 
 .current-page {
-    &::after {
-        position: absolute;
-        left: 0;
-        bottom: -4px;
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
 
-        content: "";
-        width: 100%;
-        height: 4px;
-        background-color: $accentColor;
-    }
+    content: '';
+    width: 100%;
+    height: 4px;
+    background-color: $accentColor;
+  }
 }
 
 .search-form {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
 
-    display: flex;
-    align-items: center;
-    height: 20px;
+  display: flex;
+  align-items: center;
+  height: 20px;
 }
 
 .search-field {
-    height: 20px;
-    width: 336px;
+  height: 20px;
+  width: 336px;
 
+  font-size: $mainFont;
+  color: $whiteColor;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(16 / 14);
+
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 0.5px solid $whiteColor;
+
+  &::placeholder {
     font-size: $mainFont;
     color: $whiteColor;
     font-weight: 400;
     font-size: 14px;
     line-height: calc(16 / 14);
+  }
 
-    background-color: transparent;
-    border: transparent;
-    border-bottom: 0.5px solid $whiteColor;
-    
-        &::placeholder {
-            font-size: $mainFont;
-            color: $whiteColor;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: calc(16 / 14);
-        }
-
-        @include less-tab {
-            width: 280px;
-        }
+  @include less-tab {
+    width: 280px;
+  }
 }
 
 .search-icon {
-    position: absolute;
-    right: 0;
-    bottom: 4px;
-    display: block;
-
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  display: block;
 }
 
 .message {
-    display: inline-block;
-    position: absolute;
-    left: 50%;
-    top: 149px;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 149px;
 
-    transform: translateX(-50%);
-    font-family: $mainFont;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: calc(16 / 14);
-    color: $errorColor;
+  transform: translateX(-50%);
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  color: $errorColor;
 }
 
 .library-buttons {
-    display: none;
-    position: absolute;
-    left: 50%;
-    bottom: 60px;
-    transform: translateX(-50%);
+  display: none;
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  transform: translateX(-50%);
 }
 
 .header-button {
-    width: 148px;
-    height: 42px;
+  width: 148px;
+  height: 42px;
 
-    font-family: $mainFont;
-    color: $whiteColor;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: calc(16 / 12);
-    cursor: pointer;
+  font-family: $mainFont;
+  color: $whiteColor;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  cursor: pointer;
 
-    border: 1px solid $whiteColor;
-    border-radius: 5px;
-    background-color: transparent;
+  border: 1px solid $whiteColor;
+  border-radius: 5px;
+  background-color: transparent;
 
-    &:last-child {
-        margin-left: 16px;
-        @include less-tab {
-            margin-left: 20px;
-        }
-    }
-
+  &:last-child {
+    margin-left: 16px;
     @include less-tab {
-        width: 130px;
-        height: 44px;
+      margin-left: 20px;
     }
+  }
+
+  @include less-tab {
+    width: 130px;
+    height: 44px;
+  }
 }
 
 .active-button {
-    background-color: $accentColor;
-    border: transparent;
+  background-color: $accentColor;
+  border: transparent;
 }
 
 .visible {
-    display: flex;
+  display: flex;
 }
 
 .hidden {
-    display: none;
+  display: none;
+}
+
+.stand-with {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  background-image: linear-gradient(#00f 50%, #ff0 0);
+
+  color: #fff;
 }
