@@ -1,6 +1,7 @@
 import './sass/main.scss';
-import fetchAPI from './js/fetch';
-import {refs} from './js/refs'; // DOM Elements references
+import { Markup } from './js/markup';
+import FetchAPI from './js/fetch';
+import { refs } from './js/refs'; // DOM Elements references
 import { openHomePage, openLibraryPage } from './js/alternate-pages';
 import { openWatchedList, openQueueList } from './js/library-lists';
 
@@ -9,6 +10,7 @@ import { openWatchedList, openQueueList } from './js/library-lists';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import * as TUI from './js/pagination';
+import { MarkTrending } from './js/markup';
 
 import { openModalRef } from './js/movieModal';
 
@@ -19,15 +21,14 @@ pagination.on('afterMove', event => {
 
 // HOME & MY LIBRARY pages openning + Library Lists alternation (Watched, Queue)
 
-refs.libraryPage.addEventListener('click', openLibraryPage);   
+refs.libraryPage.addEventListener('click', openLibraryPage);
 refs.homePage.addEventListener('click', openHomePage);
 
 refs.watchedBtn.addEventListener('click', openWatchedList);
-refs.queueBtn.addEventListener('click', openQueueList)
+refs.queueBtn.addEventListener('click', openQueueList);
 
 // try fetch
 
+// console.log(FetchAPI.fetchTrendingMovies(1).then(data => console.log(data.data.results)));
 
-console.log(fetchAPI.fetchTrendingMovies(1).then(data => console.log(data.data.results)));
-
-console.log(fetchAPI.fetchGenres().then(data => console.log(data.data.genres)));
+// console.log(fetchAPI.fetchGenres().then(data => console.log(data.data.genres)));
