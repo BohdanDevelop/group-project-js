@@ -9,6 +9,7 @@ import { openWatchedList, openQueueList } from './js/library-lists';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import * as TUI from './js/pagination';
+import { MarkTrending } from './js/markup';
 
 import { openModalRef } from './js/movieModal';
 
