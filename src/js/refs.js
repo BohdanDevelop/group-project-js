@@ -18,4 +18,6 @@ export const refs = {
   backdrop: document.querySelector('.js-backdrop'),
   modal: document.querySelector('.modal__wrapper'),
   closeModalBtn: document.querySelector('.js-modal__close-btn'),
+  // spinner
+  spinner: document.getElementById('spinner'),
 };
