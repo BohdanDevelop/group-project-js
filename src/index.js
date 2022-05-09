@@ -7,7 +7,16 @@ import { refs } from './js/refs'; // DOM Elements references
 import { openHomePage, openLibraryPage } from './js/alternate-pages';
 import { openWatchedList, openQueueList } from './js/library-lists';
 
-import { openModalRef } from './js/movieModal';
+// pagination markup and styles
+
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+import * as TUI from './js/pagination';
+import { MarkTrending } from './js/markup';
+
+import './js/markup';
+import './js/movieModal';
+import './js/upBtn';
 
 // HOME & MY LIBRARY pages openning + Library Lists alternation (Watched, Queue)
 
