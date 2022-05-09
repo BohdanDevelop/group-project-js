@@ -191,10 +191,10 @@
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal__trailer-link {
-  display: inline-flex;
-  align-items: center;
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
   color: $textCopyright;
-  fill: $errorColor;
   transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,

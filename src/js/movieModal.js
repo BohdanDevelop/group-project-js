@@ -1,34 +1,38 @@
-// import * as basicLightbox from 'basiclightbox';
-// import 'basiclightbox/dist/basicLightbox.min.css';
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
 import fetchAPI from './fetch';
 import { refs } from './refs';
 
 refs.gallery.addEventListener('click', onOpenMovieModal);
 
-function onOpenMovieModal(e) {
-  clearModal();
-  if (e.target.nodeName === 'UL') {
-    return;
+async function onOpenMovieModal(e) {
+  try {
+    clearModal();
+    if (e.target.nodeName === 'UL') {
+      return;
+    }
+
+    const filmId = e.target.closest('li').dataset.id;
+
+    refs.backdrop.classList.add('show');
+    document.body.style.overflow = 'hidden';
+
+    const filmById = await fetchAPI.fetchMovieByID(filmId);
+    const trailerKey = await fetchAPI.fetchYoutube(filmId);
+    const keyOfTrailer = trailerKey.data.results[0].key;
+
+    refs.modal.insertAdjacentHTML('afterbegin', markupModal(filmById.data, keyOfTrailer));
+
+    const templateInstance = basicLightbox.create(document.querySelector('#template'));
+    document.querySelector('button.modal__trailer-link').onclick = templateInstance.show;
+
+    document.addEventListener('keydown', onCloseByEsc);
+    refs.closeModalBtn.addEventListener('click', onCloseMovieModal);
+    refs.backdrop.addEventListener('click', onBackdropClick);
+  } catch (error) {
+    console.log(error);
   }
-
-  const filmId = e.target.closest('li').dataset.id;
-
-  refs.backdrop.classList.add('show');
-  document.body.style.overflow = 'hidden';
-
-  fetchAPI
-    .fetchMovieByID(filmId)
-    .then(r => {
-      refs.modal.insertAdjacentHTML('afterbegin', markupModal(r.data));
-    })
-    .catch(error => {
-      console.log(error);
-    });
-
-  document.addEventListener('keydown', onCloseByEsc);
-  refs.closeModalBtn.addEventListener('click', onCloseMovieModal);
-  refs.backdrop.addEventListener('click', onBackdropClick);
 }
 
 function onCloseMovieModal(e) {
@@ -55,18 +59,10 @@ function clearModal() {
   refs.modal.innerHTML = '';
 }
 
-function markupModal({
-  poster_path,
-  original_title,
-  title,
-  name,
-  vote_average,
-  vote_count,
-  genres,
-  overview,
-  popularity,
-  id,
-}) {
+function markupModal(
+  { poster_path, original_title, vote_average, vote_count, genres, overview, popularity },
+  key,
+) {
   const genresList = genres.map(({ name }) => name).join(', ');
   return `<div class="modal__img--block">
       <img
@@ -99,12 +95,12 @@ function markupModal({
       </ul>
       <div class="modal__about">
         <h3 class="film__pre-title">About</h3>
-        <a
-          class="modal__trailer-link"
-          href="https://www.youtube.com/watch?v=MCAnQIs_kAs&ab_channel=MovieTrailersSource"
-        >
-          <p><span class="modal__trailer-icon">&#x25B6</span> Watch Trailer</p></a
-        >
+        <button class="modal__trailer-link">
+        <template id="template">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" frameborder="0" allowfullscreen></iframe>
+</template>
+          <p><span class="modal__trailer-icon">&#x25B6</span> Watch Trailer</p>
+        </button>
       </div>
       <p class="film__description">
         ${overview}
@@ -113,6 +109,5 @@ function markupModal({
         <button class="modal__btn modal__btn--orange" type="button">add to Watched</button>
         <button class="modal__btn" type="button">add to queue</button>
       </div>    
-      
     </div>`;
 }

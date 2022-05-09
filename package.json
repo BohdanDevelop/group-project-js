@@ -28,7 +28,6 @@
     "tui-pagination": "^3.4.1"
   },
   "dependencies": {
-    "basiclightbox": "^5.0.4",
-    "simplelightbox": "^2.10.3"
+    "basiclightbox": "^5.0.4"
   }
 }
