@@ -56,9 +56,10 @@ function addToWatchedList(event) {
     if (!IfMovieisAdded(clickedMovie.title, 'queue-list')) {
       if (!IfMovieisAdded(clickedMovie.title, 'watched-list')) {
         watchedList.push(movie);
+        Notify.success("Movie is added to Watched")
         return localStorage.setItem('watched-list', JSON.stringify(watchedList));
       } else {
-        Notify.info('This movie has already been added to Watched');
+        Notify.warning('This movie has already been added to Watched');
       }
     } else {
       return Notify.info('This movie is already in Queue');
@@ -85,17 +86,27 @@ function addToQueueList(event) {
     if (!IfMovieisAdded(clickedMovie.title, 'watched-list')) {
       if (!IfMovieisAdded(clickedMovie.title, 'queue-list')) {
         queueList.push(movie);
+        Notify.success("Movie is added to Queue")
         return localStorage.setItem('queue-list', JSON.stringify(queueList));
       } else {
-        Notify.info('This movie has already been added to Queue');
+        Notify.warning('This movie has already been added to Queue');
       }
     } else {
-      return Notify.info('This movie is already in Watched');
+      return Notify.info('This movie is already in Queue');
     }
   }
 
   return;
 }
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === 'r') {
+        localStorage.clear();
+        watchedList = []
+        queueList = []
+        refs.libraryGallery.innerHTML =""
+    }
+     });
 
 export {
   addToWatchedList,
