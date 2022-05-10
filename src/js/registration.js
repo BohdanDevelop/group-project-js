@@ -1,8 +1,13 @@
 import { refs } from './refs';
-
 import { initializeApp } from 'firebase/app';
-
 import Notiflix from 'notiflix';
+import {
+  getAuth,
+  signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDc8qgA4c6HBXFARFJCFRqjiSdqL1SZ1O0',
@@ -17,8 +22,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 refs.logIn.addEventListener('click', authWithPopup);
-
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from 'firebase/auth';
+refs.logOut.addEventListener('click', onClickLogOut);
 
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
@@ -48,13 +52,40 @@ function authWithPopup() {
 
 onAuthStateChanged(auth, user => {
   if (user) {
-    const uid = user.uid;
+    declineAccess();
     console.log(user);
 
     // ...
   } else {
+    authAccess();
     // User is signed out
     // ...
     console.log('pum-pum');
   }
 });
+
+function hiddenToggle(refs, flag = true) {
+  refs.hidden = flag;
+}
+
+function declineAccess(user) {
+  hiddenToggle(refs.libraryPage, false);
+  hiddenToggle(refs.logIn);
+  hiddenToggle(refs.logOut, false);
+}
+
+function authAccess(user) {
+  hiddenToggle(refs.libraryPage);
+  hiddenToggle(refs.logIn, false);
+  hiddenToggle(refs.logOut);
+}
+
+function onClickLogOut() {
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+    })
+    .catch(error => {
+      // An error happened.
+    });
+}
