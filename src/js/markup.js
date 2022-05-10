@@ -1,5 +1,6 @@
 import { refs } from './refs';
 import noPosterImg from '../images/no-poster.jpg';
+import { getArrMovie } from './movieModal';
 
 export default class Markup {
   static formEl = refs.form;
@@ -30,6 +31,7 @@ export default class Markup {
         return el;
       });
       el.genre_ids = el.genre_ids.join(', ');
+      getArrMovie(data);
       return;
     });
 
