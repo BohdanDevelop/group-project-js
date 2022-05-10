@@ -1,6 +1,5 @@
 import { refs } from './refs';
 import noPosterImg from '../images/no-poster.jpg';
-import { getArrMovie } from './movieModal';
 
 export default class Markup {
   static formEl = refs.form;
@@ -29,7 +28,7 @@ export default class Markup {
         return el;
       });
       el.genre_ids = el.genre_ids.join(', ');
-      getArrMovie(data);
+      // getArrMovie(data);
       return;
     });
   }
@@ -48,5 +47,60 @@ export default class Markup {
         </li>`;
       })
       .join('');
+  }
+
+  static drawModal(
+    { poster_path, title, vote_average, vote_count, genre_ids, overview, popularity },
+    key,
+  ) {
+    console.log(vote_average, vote_count);
+    return `<div class="modal__img--block">
+          <div >
+            <img
+              class="modal__img"
+              src="${poster_path}"
+              alt="${title}"
+            />
+            <button class="modal__trailer-link">
+              <template id="template">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" frameborder="0" allowfullscreen></iframe>
+      </template><span class="modal__trailer-icon">&#x25B6</span>
+            </button>
+          </div>
+        </div>
+        <div class="film modal__film">
+          <h2 class="film__title">${title}</h2>
+          <ul class="film__list">
+            <li class="film__item">
+              <p class="film__info">Vote / Votes</p>
+              <p class="film__value film__value--orange">${vote_average}</p>
+              <p class="film_value-slash">&nbsp;/&nbsp;</p>
+              <p class="film__value film__value--gray">${vote_count}</p>
+            </li>
+            <li class="film__item">
+              <p class="film__info">Popularity</p>
+              <p class="film__value">${popularity}</p>
+            </li>
+            <li class="film__item">
+              <p class="film__info">Original Title</p>
+              <p class="film__value">${title}</p>
+            </li>
+            <li class="film__item">
+              <p class="film__info">Genre</p>
+              <p class="film__value">${genre_ids}</p>
+            </li>
+          </ul>
+          <div class="modal__about">
+            <h3 class="film__pre-title">About</h3>
+
+          </div>
+          <p class="film__description">
+            ${overview}
+          </p>
+          <div class="modal__btn-block">
+            <button class="modal__btn modal__btn--orange" type="button">add to Watched</button>
+            <button class="modal__btn" type="button">add to queue</button>
+          </div>
+        </div>`;
   }
 }

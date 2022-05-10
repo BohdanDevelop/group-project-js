@@ -7,7 +7,7 @@ import scroll from './upBtn';
 import { refs } from './refs';
 import Notiflix from 'notiflix';
 
-async function onSearchSubmit(event) {
+export default async function onSearchSubmit(event) {
   refs.gallery.innerHTML = '';
   event.preventDefault();
   const searchQuery = event.currentTarget.elements['searchQuery'].value.trim();
@@ -43,4 +43,4 @@ async function onSearchSubmit(event) {
   }
 }
 
-refs.form.addEventListener('submit', onSearchSubmit);
+// refs.form.addEventListener('submit', onSearchSubmit);

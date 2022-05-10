@@ -5,14 +5,20 @@ import 'tui-pagination/dist/tui-pagination.css';
 import * as TUI from './pagination';
 import scroll from './upBtn';
 import { refs } from './refs';
-import Notiflix from 'notiflix';
+import Modal from './movieModal';
+import onSearchSubmit from './onSearchSubmit';
+
+let modal = new Modal();
 
 async function onLoadPage(page) {
   try {
     const res = await Promise.all([fetchAPI.fetchTrendingMovies(page), fetchAPI.fetchGenres()]);
+    //add all listeners at first load
+    refs.form.addEventListener('submit', onSearchSubmit);
 
     Markup.fetchMovies(res[0].data.results, res[1].data.genres);
     Markup.drawMovieCard(res[0].data.results);
+    modal.getArrMovie(res[0].data.results);
 
     const paginationOnTrending = new Pagination(
       'pagination',
