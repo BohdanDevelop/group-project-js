@@ -1,7 +1,8 @@
 import './sass/main.scss';
 
 import './js/preloader';
-import './js/drawFirstPage';
+import './js/onSearchSubmit';
+import './js/onLoadPage';
 
 import { refs } from './js/refs'; // DOM Elements references
 import { openHomePage, openLibraryPage } from './js/alternate-pages';
