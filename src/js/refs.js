@@ -24,4 +24,8 @@ export const refs = {
   spinner: document.getElementById('spinner'),
   //pagination
   pagination: document.querySelector('.pagination'),
+  footerModalButton: document.querySelector('.footer-modalButton'),
+  footerBackDrop: document.querySelector('.footer-backdrop'),
+  footerCloseBtn: document.querySelector('.footer__close-btn'),
+  footerModal: document.querySelector('.footer-modal'),
 };
