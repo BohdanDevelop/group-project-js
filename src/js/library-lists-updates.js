@@ -100,7 +100,7 @@ function addToQueueList(event) {
 }
 
 document.addEventListener("keydown", (event) => {
-    if (event.key === 'r') {
+    if (event.ctrlKey && event.code === 'KeyZ') {
         localStorage.clear();
         watchedList = []
         queueList = []
