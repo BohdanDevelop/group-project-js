@@ -47,7 +47,7 @@ function addToWatchedList(event) {
       
           const movie = {
             name: clickedMovie.title,
-            genres: clickedMovie.genres_ids,  
+            genres: clickedMovie.genre_ids,  
             rating: clickedMovie.vote_average,
             year: yearReleased,
             image: clickedMovie.poster_path,
@@ -78,7 +78,7 @@ function addToWatchedList(event) {
       
           const movie = {
             name: clickedMovie.title,
-            genres: clickedMovie.genres_ids,  
+            genres: clickedMovie.genre_ids,  
             rating: clickedMovie.vote_average,
             year: yearReleased,
             image: clickedMovie.poster_path,
