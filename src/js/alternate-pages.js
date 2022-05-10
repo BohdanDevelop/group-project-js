@@ -1,4 +1,5 @@
 import {refs} from "./refs.js"
+import { renderWatchedList } from "./library-lists.js";
 
 function openLibraryPage() {
     refs.homePage.classList.remove('current-page');
@@ -7,6 +8,15 @@ function openLibraryPage() {
     refs.libraryBtns.classList.add('visible');
     refs.form.classList.add('hidden');
     refs.message.classList.add('hidden');
+
+    refs.gallery.classList.add('hidden')
+    refs.libraryGallery.classList.remove('hidden')
+
+    refs.watchedBtn.classList.add('active-button')
+    refs.queueBtn.classList.remove('active-button')
+    
+    renderWatchedList()
+    
 }
 
 function openHomePage() {
@@ -16,6 +26,10 @@ function openHomePage() {
     refs.libraryBtns.classList.remove('visible');
     refs.form.classList.remove('hidden');
     refs.message.classList.remove('hidden');
+
+    refs.gallery.classList.remove('hidden')
+    refs.libraryGallery.classList.add('hidden')
+   
 }
 
 export {openHomePage, openLibraryPage}
