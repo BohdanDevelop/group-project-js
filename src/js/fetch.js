@@ -52,6 +52,8 @@ export default class FetchAPI {
       return response;
     } catch (error) {
       console.log(error);
+    } finally {
+      refs.spinner.classList.remove('is-visible');
     }
   }
   static async fetchMovieByID(id) {
