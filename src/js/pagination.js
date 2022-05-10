@@ -35,6 +35,7 @@ async function onPaginationTrending(event) {
   try {
     const res = await Promise.all([fetchAPI.fetchTrendingMovies(page), fetchAPI.fetchGenres()]);
     Markup.fetchMovies(res[0].data.results, res[1].data.genres);
+    Markup.drawMovieCard(res[0].data.results);
   } catch (error) {
     console.log(error);
   }
@@ -48,6 +49,7 @@ async function onPaginationSearch(event, searchQuery) {
       fetchAPI.fetchGenres(),
     ]);
     Markup.fetchMovies(res[0].data.results, res[1].data.genres);
+    Markup.drawMovieCard(res[0].data.results);
   } catch (error) {
     console.log(error);
   }

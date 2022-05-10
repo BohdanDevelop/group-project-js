@@ -9,8 +9,6 @@ export default class Markup {
   static BASE_IMG_URL = refs.BASE_IMG_URL;
 
   static fetchMovies(data, data1) {
-    // console.log(data);
-    this.galleryEl.innerHTML = '';
     data.filter(el => {
       if (el.poster_path) {
         el.poster_path = this.BASE_IMG_URL + el.poster_path;
@@ -34,8 +32,12 @@ export default class Markup {
       getArrMovie(data);
       return;
     });
+  }
 
-    const markup = data
+  static drawMovieCard(data) {
+    this.galleryEl.innerHTML = '';
+
+    this.galleryEl.innerHTML = data
       .map(el => {
         return `<li class="card" data-id=${el.id}>
           <img class="card-img" src=${el.poster_path} alt=${el.title} />
@@ -46,7 +48,5 @@ export default class Markup {
         </li>`;
       })
       .join('');
-
-    this.galleryEl.innerHTML = markup;
   }
 }

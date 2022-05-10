@@ -19,6 +19,7 @@ async function onSearchSubmit(event) {
       fetchAPI.fetchGenres(),
     ]);
     Markup.fetchMovies(res[0].data.results, res[1].data.genres);
+    Markup.drawMovieCard(res[0].data.results);
 
     refs.pagination.style.display = 'block';
 
