@@ -8,6 +8,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from 'firebase/auth';
+import { openHomePage } from './alternate-pages';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDc8qgA4c6HBXFARFJCFRqjiSdqL1SZ1O0',
@@ -83,6 +84,7 @@ function authAccess(user) {
 function onClickLogOut() {
   signOut(auth)
     .then(() => {
+      openHomePage();
       // Sign-out successful.
     })
     .catch(error => {
