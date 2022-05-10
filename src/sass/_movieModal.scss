@@ -50,6 +50,7 @@
   @include desk {
     width: 814px;
     min-height: 552px;
+    padding: 40px 16px 40px;
   }
 }
 .modal__wrapper {
@@ -58,6 +59,7 @@
   }
 }
 .modal__img--block {
+  position: relative;
   @include less-tab {
     margin-bottom: 20px;
   }
@@ -67,6 +69,7 @@
   }
   @include desk {
     width: calc(50% - 8px);
+
     margin-right: 16px;
   }
 }
@@ -74,11 +77,34 @@
   width: 100%;
   border-radius: 5px;
   @include tab {
-    min-width: 264px;
+    width: 264px;
   }
   @include desk {
-    min-width: 300px;
-    // max-width: 375px;
+    width: 100%;
+  }
+}
+.modal__trailer-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.modal__trailer-icon {
+  margin-right: 4px;
+  color: $errorColor;
+  font-size: 80px;
+  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.film {
+  @include tab {
+    width: calc(50% - 34px);
+  }
+  @include desk {
+    width: calc(50% - 8px);
   }
 }
 .film__title {
@@ -176,33 +202,9 @@
     cursor: pointer;
   }
 }
-.modal__social {
-  display: flex;
-  margin-bottom: 10px;
-}
+
 .modal__about {
   display: flex;
   align-items: center;
   margin-bottom: 8px;
-}
-.modal__trailer-icon {
-  margin-right: 4px;
-  color: $errorColor;
-  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.modal__trailer-link {
-  border: none;
-  text-transform: uppercase;
-  font-size: 14px;
-  color: $textCopyright;
-  transition: color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    color: $accentColor;
-  }
-  &:hover .modal__trailer-icon,
-  &:focus .modal__trailer-icon {
-    color: $accentColor;
-  }
 }

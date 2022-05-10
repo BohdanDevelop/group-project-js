@@ -1,10 +1,13 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import noPosterImg from '../images/no-poster.jpg';
 
 import fetchAPI from './fetch';
 import { refs } from './refs';
 
 refs.gallery.addEventListener('click', onOpenMovieModal);
+
+let newArrMovies = null;
 
 async function onOpenMovieModal(e) {
   try {
@@ -13,16 +16,17 @@ async function onOpenMovieModal(e) {
       return;
     }
 
-    const filmId = e.target.closest('li').dataset.id;
+    const filmId = Number(e.target.closest('li').dataset.id);
 
     refs.backdrop.classList.add('show');
     document.body.style.overflow = 'hidden';
 
-    const filmById = await fetchAPI.fetchMovieByID(filmId);
+    const rightMovie = newArrMovies.find(arr => arr.id === filmId);
+
     const trailerKey = await fetchAPI.fetchYoutube(filmId);
     const keyOfTrailer = trailerKey.data.results[0].key;
 
-    refs.modal.insertAdjacentHTML('afterbegin', markupModal(filmById.data, keyOfTrailer));
+    refs.modal.insertAdjacentHTML('afterbegin', markupModal(rightMovie, keyOfTrailer));
 
     const templateInstance = basicLightbox.create(document.querySelector('#template'));
     document.querySelector('button.modal__trailer-link').onclick = templateInstance.show;
@@ -43,6 +47,10 @@ function onCloseMovieModal(e) {
   refs.backdrop.removeEventListener('click', onBackdropClick);
 }
 
+function getArrMovie(arr) {
+  newArrMovies = arr;
+}
+
 function onBackdropClick(e) {
   if (e.target === refs.backdrop) {
     onCloseMovieModal();
@@ -60,19 +68,30 @@ function clearModal() {
 }
 
 function markupModal(
-  { poster_path, original_title, vote_average, vote_count, genres, overview, popularity },
+  { poster_path, title, vote_average, vote_count, genre_ids, overview, popularity },
   key,
 ) {
-  const genresList = genres.map(({ name }) => name).join(', ');
+  if (poster_path) {
+    poster_path = refs.BASE_IMG_URL + poster_path;
+  } else {
+    poster_path = noPosterImg;
+  }
   return `<div class="modal__img--block">
-      <img
-        class="modal__img"
-        src="https://image.tmdb.org/t/p/original${poster_path}"
-        alt="${original_title}"
-      />
+      <div >
+        <img
+          class="modal__img"
+          src="${poster_path}"
+          alt="${title}"
+        />
+        <button class="modal__trailer-link">
+          <template id="template">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" frameborder="0" allowfullscreen></iframe>
+  </template><span class="modal__trailer-icon">&#x25B6</span>
+        </button>
+      </div>
     </div>
     <div class="film modal__film">
-      <h2 class="film__title">${original_title}</h2>
+      <h2 class="film__title">${title}</h2>
       <ul class="film__list">
         <li class="film__item">
           <p class="film__info">Vote / Votes</p>
@@ -86,21 +105,16 @@ function markupModal(
         </li>
         <li class="film__item">
           <p class="film__info">Original Title</p>
-          <p class="film__value">${original_title}</p>
+          <p class="film__value">${title}</p>
         </li>
         <li class="film__item">
           <p class="film__info">Genre</p>
-          <p class="film__value">${genresList}</p>
+          <p class="film__value">${genre_ids}</p>
         </li>
       </ul>
       <div class="modal__about">
         <h3 class="film__pre-title">About</h3>
-        <button class="modal__trailer-link">
-        <template id="template">
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" frameborder="0" allowfullscreen></iframe>
-</template>
-          <p><span class="modal__trailer-icon">&#x25B6</span> Watch Trailer</p>
-        </button>
+        
       </div>
       <p class="film__description">
         ${overview}
@@ -111,3 +125,5 @@ function markupModal(
       </div>    
     </div>`;
 }
+
+export { getArrMovie };
