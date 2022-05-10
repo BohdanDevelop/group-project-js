@@ -1,3 +1,6 @@
+import fetchAPI from './fetch';
+import Markup from './markup';
+
 const container = document.getElementById('pagination');
 function getOptions(totalItems) {
   return {
@@ -27,4 +30,27 @@ function getOptions(totalItems) {
   };
 }
 
-export { getOptions, container };
+async function onPaginationTrending(event) {
+  let page = event.page;
+  try {
+    const res = await Promise.all([fetchAPI.fetchTrendingMovies(page), fetchAPI.fetchGenres()]);
+    Markup.fetchMovies(res[0].data.results, res[1].data.genres);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function onPaginationSearch(event, searchQuery) {
+  let page = event.page;
+  try {
+    const res = await Promise.all([
+      fetchAPI.fetchByQuery(page, searchQuery),
+      fetchAPI.fetchGenres(),
+    ]);
+    Markup.fetchMovies(res[0].data.results, res[1].data.genres);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getOptions, container, onPaginationTrending, onPaginationSearch };
