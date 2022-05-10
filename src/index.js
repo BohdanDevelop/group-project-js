@@ -11,7 +11,7 @@ import { openWatchedList, openQueueList } from './js/library-lists';
 import './js/markup';
 import './js/movieModal';
 import './js/upBtn';
-
+import './js/registration';
 // HOME & MY LIBRARY pages openning + Library Lists alternation (Watched, Queue)
 
 refs.libraryPage.addEventListener('click', openLibraryPage);
