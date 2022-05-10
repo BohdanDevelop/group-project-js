@@ -19,3 +19,13 @@ refs.homePage.addEventListener('click', openHomePage);
 
 refs.watchedBtn.addEventListener('click', openWatchedList);
 refs.queueBtn.addEventListener('click', openQueueList);
+refs.footerModalButton.addEventListener('click', evt => {
+  refs.footerBackDrop.classList.add('footer-backdrop--visible');
+  refs.footerModal.classList.add('footer-modal--visible');
+  document.body.style.overflow = 'hidden';
+  refs.footerCloseBtn.addEventListener('click', evt => {
+    refs.footerBackDrop.classList.remove('footer-backdrop--visible');
+    refs.footerModal.classList.remove('footer-modal--visible');
+    document.body.style.overflow = 'auto';
+  });
+});
