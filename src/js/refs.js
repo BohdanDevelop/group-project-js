@@ -8,6 +8,7 @@ export const refs = {
   watchedBtn: document.querySelector('[data-watched]'),
   queueBtn: document.querySelector('[data-queue]'),
   message: document.querySelector('.message'),
+  logIn: document.querySelector('[data-login]'),
   // preloader
   preloader: document.querySelector('.loading'),
   // static from fetch
