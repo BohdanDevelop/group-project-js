@@ -8,6 +8,7 @@ import { refs } from './refs';
 refs.gallery.addEventListener('click', onOpenMovieModal);
 
 let newArrMovies = null;
+let clickedMovie = null; // exported to library-lists-updates
 
 async function onOpenMovieModal(e) {
   try {
@@ -22,7 +23,8 @@ async function onOpenMovieModal(e) {
     document.body.style.overflow = 'hidden';
 
     const rightMovie = newArrMovies.find(arr => arr.id === filmId);
-
+    
+    clickedMovie = rightMovie // Object used for adding movies to the Watched and Queue lists
     const trailerKey = await fetchAPI.fetchYoutube(filmId);
     const keyOfTrailer = trailerKey.data.results[0].key;
 
@@ -60,6 +62,7 @@ function onBackdropClick(e) {
 function onCloseByEsc(e) {
   if (e.code === 'Escape') {
     onCloseMovieModal();
+    localStorage.clear() //to reset l storage
   }
 }
 
@@ -120,10 +123,11 @@ function markupModal(
         ${overview}
       </p>
       <div class="modal__btn-block">
-        <button class="modal__btn modal__btn--orange" type="button">add to Watched</button>
-        <button class="modal__btn" type="button">add to queue</button>
+        <button class="modal__btn modal__btn--orange" type="button" data-watched-btn>add to Watched</button>
+        <button class="modal__btn" type="button" data-queue-btn>add to queue</button>
       </div>    
     </div>`;
 }
 
 export { getArrMovie };
+export {clickedMovie}

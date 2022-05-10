@@ -25,4 +25,9 @@ export const refs = {
   spinner: document.getElementById('spinner'),
   //pagination
   pagination: document.querySelector('.pagination'),
+
+  libraryGallery: document.querySelector('[data-library-gallery]'),
+  addToWatchedBtn: document.querySelector('[data-watched-btn]'),
+  addToQueueBtn: document.querySelector('[data-queue-btn]'),
+  backdrop: document.querySelector('.backdrop')
 };
