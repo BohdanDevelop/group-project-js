@@ -62,7 +62,6 @@ function onBackdropClick(e) {
 function onCloseByEsc(e) {
   if (e.code === 'Escape') {
     onCloseMovieModal();
-    localStorage.clear() //to reset l storage
   }
 }
 

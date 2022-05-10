@@ -3,6 +3,7 @@ import './sass/main.scss';
 import './js/preloader';
 import './js/onSearchSubmit';
 import './js/onLoadPage';
+import './js/library-lists-updates';
 
 import { refs } from './js/refs'; // DOM Elements references
 import { openHomePage, openLibraryPage } from './js/alternate-pages';
