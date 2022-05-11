@@ -29,7 +29,7 @@
   @include tab {
     margin-left: 16px;
     margin-top: 16px;
-    flex-basis: calc(100% / 2 - 24px);
+    flex-basis: calc(100% / 2 - 16px);
   }
 
   @include desk {
