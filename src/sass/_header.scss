@@ -159,7 +159,7 @@
   height: 14px;
   color: $whiteColor;
   cursor: pointer;
-  &:last-child {
+  &:not(:first-child) {
     margin-left: 36px;
   }
 }
