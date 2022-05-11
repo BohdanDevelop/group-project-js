@@ -9,6 +9,7 @@ export const refs = {
   queueBtn: document.querySelector('[data-queue]'),
   message: document.querySelector('.message'),
   logIn: document.querySelector('[data-login]'),
+  logOut: document.querySelector('[data-logout]'),
   // preloader
   preloader: document.querySelector('.loading'),
   // static from fetch
@@ -29,5 +30,5 @@ export const refs = {
   libraryGallery: document.querySelector('[data-library-gallery]'),
   addToWatchedBtn: document.querySelector('[data-watched-btn]'),
   addToQueueBtn: document.querySelector('[data-queue-btn]'),
-  backdrop: document.querySelector('.backdrop')
+  backdrop: document.querySelector('.backdrop'),
 };
