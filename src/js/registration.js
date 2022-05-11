@@ -11,13 +11,13 @@ import {
 import { openHomePage } from './alternate-pages';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDc8qgA4c6HBXFARFJCFRqjiSdqL1SZ1O0',
-  authDomain: 'team-progect.firebaseapp.com',
-  projectId: 'team-progect',
-  storageBucket: 'team-progect.appspot.com',
-  messagingSenderId: '487556656558',
-  appId: '1:487556656558:web:91ec3cf6fc5c251cc8ac3f',
-  measurementId: 'G-M5G4XPS7YE',
+  apiKey: 'AIzaSyA0zZW7Ax3w5WW7X7rBic1se1nlIWmfipQ',
+  authDomain: 'something-8a49e.firebaseapp.com',
+  projectId: 'something-8a49e',
+  storageBucket: 'something-8a49e.appspot.com',
+  messagingSenderId: '166040751734',
+  appId: '1:166040751734:web:b2de702e8d42ad54d41957',
+  measurementId: 'G-PC4ZL0EZRC',
 };
 
 const app = initializeApp(firebaseConfig);
