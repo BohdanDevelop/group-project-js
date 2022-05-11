@@ -10,8 +10,8 @@
   display: flex;
   flex-wrap: wrap;
   @include mq(tablet) {
-    margin-left: -32px;
-    margin-top: -32px;
+    margin-left: -16px;
+    margin-top: -16px;
   }
 }
 
@@ -27,13 +27,13 @@
   }
 
   @include tab {
-    margin-left: 32px;
-    margin-top: 32px;
-    flex-basis: calc(100% / 2 - 32px);
+    margin-left: 16px;
+    margin-top: 16px;
+    flex-basis: calc(100% / 2 - 16px);
   }
 
   @include desk {
-    flex-basis: calc(100% / 3 - 32px);
+    flex-basis: calc(100% / 3 - 16px);
   }
 
   cursor: pointer;
