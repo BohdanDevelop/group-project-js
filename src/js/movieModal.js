@@ -9,6 +9,8 @@ export default class Modal {
   constructor() {
     this.newArrMovies;
 
+    this.clickedMovie; // exported to library-lists-updates
+
     this.backdrop = refs.backdrop;
     this.modal = refs.modal;
     this.closeModalBtn = refs.closeModalBtn;
@@ -23,6 +25,10 @@ export default class Modal {
     this.newArrMovies = arr;
   }
 
+  getClickedMovie() {
+    return this.clickedMovie;
+  }
+
   async onOpenMovieModal(e) {
     if (e.target.nodeName === 'UL') {
       return;
@@ -34,9 +40,9 @@ export default class Modal {
     try {
       const filmId = Number(e.target.closest('li').dataset.id);
       const rightMovie = this.newArrMovies.find(arr => arr.id === filmId);
-
       const trailerKey = await fetchAPI.fetchYoutube(filmId);
-      console.log(trailerKey.data.results.length);
+
+      this.clickedMovie = rightMovie; // Object used for adding movies to the Watched and Queue lists
 
       if (!trailerKey.data.results.length) {
         Markup.drawModal(rightMovie);
