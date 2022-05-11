@@ -1,0 +1,141 @@
+.footer {
+  height: 216px;
+  width: 100%;
+
+  background-size: cover;
+  background-position: center;
+  margin-top: auto;
+  background: linear-gradient(rgb(244, 228, 228),rgb(74, 39, 39));
+  position: static;
+}
+
+.footer-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  background-size: cover;
+  background-position: center;
+  //height: 216px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+  
+
+  @include less-tab {
+    height: 230px;
+    padding-left: 20px;
+    padding-right: 20px;
+   
+  }
+
+  @include mobile {
+    width: 480px;
+    .developer-text{
+      text-overflow: clip;
+    }
+    .text-mailo{
+      margin-left: 30px;
+      text-overflow: clip;
+    }
+  }
+
+  @include tab {
+    width: 768px;
+  }
+
+  @include desk {
+    width: 1024px;
+  }
+}
+.logo-info {
+  padding-bottom: 10px;
+  border-bottom: 1px $accentColor dashed;
+}
+.logo-text-footer {
+  font-family: $mainFont;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  color: $accentColor;
+
+  margin-left: 10px;
+  @include less-tab {
+    display: none;
+  }
+}
+
+.text-info-footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+}
+.text-info {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+  padding-top: 10px;
+}
+.icons-img {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 20px 0;
+  //border-bottom: 1px $accentColor dashed;
+}
+.icon {
+  margin-right: 10px;
+  padding: 3px;
+  fill: rgb(51, 45, 45);
+  
+}
+.icon :hover {
+  fill: $accentColor;
+  cursor: pointer;
+}
+.icon :focus {
+  fill: $accentColor;
+  cursor: pointer;
+}
+.text-mailo {
+  position: absolute;
+  right: 0;
+  color: rgb(51, 45, 45);
+  border:  1px solid $accentColor ;
+  padding: 5px;
+  margin-right: 20px;
+  align-items: center;
+  
+  
+}
+.developer {
+  position: relative;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  color: $blackColor;
+}
+.developer-text {
+  
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.developer-text:nth-last-child(n+3) {
+  border-right: 1px $accentColor solid;
+}
+.link-button{
+  color: rgb(45, 26, 26);
+}
