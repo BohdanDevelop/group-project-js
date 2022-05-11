@@ -34,16 +34,19 @@ export default class Modal {
     try {
       const filmId = Number(e.target.closest('li').dataset.id);
       const rightMovie = this.newArrMovies.find(arr => arr.id === filmId);
+
       const trailerKey = await fetchAPI.fetchYoutube(filmId);
-      // const keyOfTrailer = `"https://www.youtube.com/embed/${trailerKey.data.results[0].key}"`;
+      console.log(trailerKey.data.results.length);
+
+      if (!trailerKey.data.results.length) {
+        Markup.drawModal(rightMovie);
+      }
       const keyOfTrailer = trailerKey.data.results[0].key;
       Markup.drawModal(rightMovie, keyOfTrailer);
-    } catch (err) {
-      console.log(err);
-    }
 
-    const templateInstance = basicLightbox.create(document.querySelector('#template'));
-    document.querySelector('button.modal__trailer-link').onclick = templateInstance.show;
+      const templateInstance = basicLightbox.create(document.querySelector('#template'));
+      document.querySelector('button.modal__trailer-link').onclick = templateInstance.show;
+    } catch (err) {}
 
     document.addEventListener('keydown', this.onCloseByEsc);
   }
