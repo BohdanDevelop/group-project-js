@@ -1,58 +1,51 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
-import fetchAPI from './fetch';
 import { refs } from './refs';
 import Markup from './markup';
+import fetchAPI from './fetch';
 
 export default class Modal {
   constructor() {
-    this.newArrMovies = newArr;
+    this.newArrMovies;
 
     this.backdrop = refs.backdrop;
-    // this.modal = refs.modal;
+    this.modal = refs.modal;
     this.closeModalBtn = refs.closeModalBtn;
     this.gallery = refs.gallery;
 
     this.closeModalBtn.addEventListener('click', this.onCloseMovieModal.bind(this));
     this.backdrop.addEventListener('click', this.onBackdropClick.bind(this));
     this.gallery.addEventListener('click', this.onOpenMovieModal.bind(this));
-    console.log(this.newArrMovies);
+  }
 
-    this.getArrMovie = function getArrMovie(arr) {
-      // console.log(arr);
-      this.newArr = arr;
-      // arr.map(el => this.newArrMovies.push(el));
-    };
+  getArrMovie(arr) {
+    this.newArrMovies = arr;
   }
 
   async onOpenMovieModal(e) {
-    try {
-      // this.modal.innerHTML = '';
-      if (e.target.nodeName === 'UL') {
-        return;
-      }
-
-      const filmId = Number(e.target.closest('li').dataset.id);
-
-      this.backdrop.classList.add('show');
-      document.body.style.overflow = 'hidden';
-
-      const rightMovie = this.newArrMovies.find(arr => arr.id === filmId);
-      console.log(rightMovie);
-
-      const trailerKey = await fetchAPI.fetchYoutube(filmId);
-      const keyOfTrailer = trailerKey.data.results[0].key;
-
-      this.modal.insertAdjacentHTML('afterbegin', Markup.drawModal(rightMovie, keyOfTrailer));
-
-      const templateInstance = basicLightbox.create(document.querySelector('#template'));
-      document.querySelector('button.modal__trailer-link').onclick = templateInstance.show;
-
-      document.addEventListener('keydown', this.onCloseByEsc);
-    } catch (error) {
-      console.log(error);
+    if (e.target.nodeName === 'UL') {
+      return;
     }
+
+    this.backdrop.classList.add('show');
+    document.body.style.overflow = 'hidden';
+
+    try {
+      const filmId = Number(e.target.closest('li').dataset.id);
+      const rightMovie = this.newArrMovies.find(arr => arr.id === filmId);
+      const trailerKey = await fetchAPI.fetchYoutube(filmId);
+      // const keyOfTrailer = `"https://www.youtube.com/embed/${trailerKey.data.results[0].key}"`;
+      const keyOfTrailer = trailerKey.data.results[0].key;
+      Markup.drawModal(rightMovie, keyOfTrailer);
+    } catch (err) {
+      console.log(err);
+    }
+
+    const templateInstance = basicLightbox.create(document.querySelector('#template'));
+    document.querySelector('button.modal__trailer-link').onclick = templateInstance.show;
+
+    document.addEventListener('keydown', this.onCloseByEsc);
   }
 
   onCloseMovieModal(e) {

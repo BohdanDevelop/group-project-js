@@ -1,7 +1,6 @@
 import './sass/main.scss';
 
 import './js/preloader';
-import './js/onSearchSubmit';
 import './js/onLoadPage';
 
 import { refs } from './js/refs'; // DOM Elements references
