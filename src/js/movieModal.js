@@ -6,6 +6,7 @@ import fetchAPI from './fetch';
 import { refs } from './refs';
 
 refs.gallery.addEventListener('click', onOpenMovieModal);
+refs.libraryGallery.addEventListener('click', onOpenMovieModal);
 
 let newArrMovies = null;
 let clickedMovie = null; // exported to library-lists-updates
