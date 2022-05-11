@@ -9,6 +9,9 @@ import Modal from './movieModal';
 // import onSearchSubmit from './onSearchSubmit';
 
 let modal = new Modal();
+// export function modal.getClickedMovie();
+// console.log(modal.getClickedMovie());
+// export { modal.getClickedMovie };
 
 async function onLoadPage(page) {
   try {
@@ -97,3 +100,9 @@ async function onPaginationSearch(event, searchQuery) {
     console.log(error);
   }
 }
+
+function getClickedMovie() {
+  return modal.getClickedMovie();
+}
+
+export { getClickedMovie };
