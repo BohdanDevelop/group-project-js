@@ -162,6 +162,10 @@
   &:not(:first-child) {
     margin-left: 36px;
   }
+
+  &:hover {
+    color: goldenrod;
+  }
 }
 
 .current-page {
@@ -298,3 +302,4 @@
 
   color: #fff;
 }
+
