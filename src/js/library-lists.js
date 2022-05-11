@@ -1,4 +1,5 @@
 import { refs } from './refs.js';
+import { getArrMovie } from './movieModal';
 
 function openWatchedList() {
   refs.watchedBtn.classList.add('active-button');
@@ -20,7 +21,6 @@ function renderWatchedList() {
   }
 
   const parsedMovies = JSON.parse(movies);
-
   renderListMarkup(parsedMovies);
 }
 
@@ -39,7 +39,7 @@ function renderQueueList() {
 
 function renderListMarkup(parsedMovies) {
   parsedMovies.map(movie => {
-    const markup = `<li class="card">
+    const markup = `<li class="card" data-id=${movie.id}> 
         <img class="card-img" src="https://image.tmdb.org/t/p/original${movie.image}" alt="${movie.name}" />
         <h3 class="card-title">${movie.name}</h3>
         <p class="card-description">

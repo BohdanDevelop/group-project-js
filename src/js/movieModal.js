@@ -18,7 +18,6 @@ async function onOpenMovieModal(e) {
     }
 
     const filmId = Number(e.target.closest('li').dataset.id);
-
     refs.backdrop.classList.add('show');
     document.body.style.overflow = 'hidden';
 
@@ -31,7 +30,7 @@ async function onOpenMovieModal(e) {
     refs.modal.insertAdjacentHTML('afterbegin', markupModal(rightMovie, keyOfTrailer));
 
     const templateInstance = basicLightbox.create(document.querySelector('#template'));
-    document.querySelector('button.modal__trailer-link').onclick = templateInstance.show;
+    document.querySelector('div.modal__trailer-link').onclick = templateInstance.show;
 
     document.addEventListener('keydown', onCloseByEsc);
     refs.closeModalBtn.addEventListener('click', onCloseMovieModal);

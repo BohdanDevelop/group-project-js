@@ -46,6 +46,7 @@ function addToWatchedList(event) {
     const yearReleased = clickedMovie.release_date.slice(0, 4);
 
     const movie = {
+      id: clickedMovie.id,
       name: clickedMovie.title,
       genres: clickedMovie.genre_ids,
       rating: clickedMovie.vote_average,
@@ -56,7 +57,7 @@ function addToWatchedList(event) {
     if (!IfMovieisAdded(clickedMovie.title, 'queue-list')) {
       if (!IfMovieisAdded(clickedMovie.title, 'watched-list')) {
         watchedList.push(movie);
-        Notify.success("Movie is added to Watched")
+        Notify.success('Movie is added to Watched');
         return localStorage.setItem('watched-list', JSON.stringify(watchedList));
       } else {
         Notify.warning('This movie has already been added to Watched');
@@ -76,6 +77,7 @@ function addToQueueList(event) {
     const yearReleased = clickedMovie.release_date.slice(0, 4);
 
     const movie = {
+      id: clickedMovie.id,
       name: clickedMovie.title,
       genres: clickedMovie.genre_ids,
       rating: clickedMovie.vote_average,
@@ -86,7 +88,7 @@ function addToQueueList(event) {
     if (!IfMovieisAdded(clickedMovie.title, 'watched-list')) {
       if (!IfMovieisAdded(clickedMovie.title, 'queue-list')) {
         queueList.push(movie);
-        Notify.success("Movie is added to Queue")
+        Notify.success('Movie is added to Queue');
         return localStorage.setItem('queue-list', JSON.stringify(queueList));
       } else {
         Notify.warning('This movie has already been added to Queue');
@@ -99,14 +101,14 @@ function addToQueueList(event) {
   return;
 }
 
-document.addEventListener("keydown", (event) => {
-    if (event.ctrlKey && event.code === 'KeyZ') {
-        localStorage.clear();
-        watchedList = []
-        queueList = []
-        refs.libraryGallery.innerHTML =""
-    }
-     });
+document.addEventListener('keydown', event => {
+  if (event.ctrlKey && event.code === 'KeyZ') {
+    localStorage.clear();
+    watchedList = [];
+    queueList = [];
+    refs.libraryGallery.innerHTML = '';
+  }
+});
 
 export {
   addToWatchedList,
