@@ -6,6 +6,7 @@ import fetchAPI from './fetch';
 import { refs } from './refs';
 
 refs.gallery.addEventListener('click', onOpenMovieModal);
+refs.libraryGallery.addEventListener('click', onOpenMovieModal);
 
 let newArrMovies = null;
 let clickedMovie = null; // exported to library-lists-updates
@@ -18,20 +19,19 @@ async function onOpenMovieModal(e) {
     }
 
     const filmId = Number(e.target.closest('li').dataset.id);
-
     refs.backdrop.classList.add('show');
     document.body.style.overflow = 'hidden';
 
     const rightMovie = newArrMovies.find(arr => arr.id === filmId);
-    
-    clickedMovie = rightMovie // Object used for adding movies to the Watched and Queue lists
+
+    clickedMovie = rightMovie; // Object used for adding movies to the Watched and Queue lists
     const trailerKey = await fetchAPI.fetchYoutube(filmId);
     const keyOfTrailer = trailerKey.data.results[0].key;
 
     refs.modal.insertAdjacentHTML('afterbegin', markupModal(rightMovie, keyOfTrailer));
 
     const templateInstance = basicLightbox.create(document.querySelector('#template'));
-    document.querySelector('button.modal__trailer-link').onclick = templateInstance.show;
+    document.querySelector('div.modal__trailer-link').onclick = templateInstance.show;
 
     document.addEventListener('keydown', onCloseByEsc);
     refs.closeModalBtn.addEventListener('click', onCloseMovieModal);
@@ -79,17 +79,17 @@ function markupModal(
     poster_path = noPosterImg;
   }
   return `<div class="modal__img--block">
-      <div >
+      <div class="modal__img-wrapper">
         <img
           class="modal__img"
           src="${poster_path}"
           alt="${title}"
         />
-        <button class="modal__trailer-link">
+        <div class="modal__trailer-link">
           <template id="template">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" frameborder="0" allowfullscreen></iframe>
   </template><span class="modal__trailer-icon">&#x25B6</span>
-        </button>
+        </div>
       </div>
     </div>
     <div class="film modal__film">
@@ -129,4 +129,4 @@ function markupModal(
 }
 
 export { getArrMovie };
-export {clickedMovie}
+export { clickedMovie };
