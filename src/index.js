@@ -22,6 +22,7 @@ import './js/upBtn';
 import './js/registration';
 import './js/library-lists';
 import './js/library-lists-updates';
+import './js/nightMode';
 // HOME & MY LIBRARY pages openning + Library Lists alternation (Watched, Queue)
 
 refs.libraryPage.addEventListener('click', openLibraryPage);
