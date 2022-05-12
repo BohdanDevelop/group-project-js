@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { refs } from './refs';
+import { Notify } from 'notiflix';
 
 export default class FetchAPI {
   static API_KEY = refs.API_KEY;
@@ -52,6 +53,8 @@ export default class FetchAPI {
       return response;
     } catch (error) {
       console.log(error);
+      Notify.info('Please enter something');
+      refs.pagination.style.display = 'none';
     } finally {
       refs.spinner.classList.remove('is-visible');
     }

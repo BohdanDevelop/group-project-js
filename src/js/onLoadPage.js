@@ -5,7 +5,7 @@ import 'tui-pagination/dist/tui-pagination.css';
 import * as TUI from './pagination';
 import scroll from './upBtn';
 import { refs } from './refs';
-import Notiflix from 'notiflix';
+import { Notify } from 'notiflix';
 
 async function onLoadPage(page) {
   try {
@@ -22,6 +22,8 @@ async function onLoadPage(page) {
     });
   } catch (error) {
     console.log(error);
+    Notify.info('Please enter something');
+    refs.pagination.style.display = 'none';
   }
 }
 
