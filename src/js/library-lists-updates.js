@@ -29,7 +29,6 @@ function getQueueStorageState() {
   queueList = parsed;
 }
 
-
 function IfMovieisAdded(movieName, listType) {
   const list = localStorage.getItem(listType);
 
