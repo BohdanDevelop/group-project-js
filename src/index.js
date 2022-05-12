@@ -11,3 +11,4 @@ import './js/registration';
 import './js/library-lists';
 import './js/library-lists-updates';
 import './js/alternate-pages';
+import './js/modal-footer';
