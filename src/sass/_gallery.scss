@@ -1,6 +1,6 @@
 .gallery {
   padding-top: 60px;
-    @media (max-width: 767px) {
+  @include less-tab {
       padding-top: 20px;
     
     }
@@ -68,4 +68,11 @@
     color: $whiteColor;
     border-radius: 5px;
   }
+}
+
+.gallery-bottom-padding {
+  padding-bottom: 60px;
+    @include less-tab {
+      padding-bottom: 20px;
+    }
 }

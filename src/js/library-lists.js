@@ -1,6 +1,9 @@
 import { refs } from './refs.js';
 import { getArrMovie } from './movieModal';
 
+refs.watchedBtn.addEventListener('click', openWatchedList);
+refs.queueBtn.addEventListener('click', openQueueList);
+
 function openWatchedList() {
   refs.watchedBtn.classList.add('active-button');
   refs.queueBtn.classList.remove('active-button');
