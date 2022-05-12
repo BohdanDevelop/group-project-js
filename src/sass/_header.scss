@@ -162,6 +162,10 @@
   &:not(:first-child) {
     margin-left: 36px;
   }
+
+  &:hover {
+    color: goldenrod;
+  }
 }
 
 .current-page {
@@ -203,12 +207,17 @@
   border-bottom: 0.5px solid $whiteColor;
   outline: none;
 
+  &:hover {
+    border-bottom: 0.5px solid goldenrod;
+  }
+
   &::placeholder {
     font-size: $mainFont;
     color: $whiteColor;
     font-weight: 400;
     font-size: 14px;
     line-height: calc(16 / 14);
+    
   }
 
   @include less-tab {

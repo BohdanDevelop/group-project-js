@@ -1,6 +1,9 @@
 import { refs } from './refs.js';
 import { renderWatchedList } from './library-lists.js';
 
+refs.libraryPage.addEventListener('click', openLibraryPage);
+refs.homePage.addEventListener('click', openHomePage);
+
 function openLibraryPage() {
   refs.homePage.classList.remove('current-page');
   refs.libraryPage.classList.add('current-page');
@@ -15,6 +18,9 @@ function openLibraryPage() {
   refs.watchedBtn.classList.add('active-button');
   refs.queueBtn.classList.remove('active-button');
 
+  refs.pagination.classList.add('hidden');
+  refs.gallerySection.classList.add('gallery-bottom-padding')
+
   renderWatchedList();
 }
 
@@ -28,6 +34,9 @@ function openHomePage() {
 
   refs.gallery.classList.remove('hidden');
   refs.libraryGallery.classList.add('hidden');
+
+  refs.pagination.classList.remove('hidden');
+  refs.gallerySection.classList.remove('gallery-bottom-padding')
 }
 
 export { openHomePage, openLibraryPage };

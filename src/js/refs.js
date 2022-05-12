@@ -31,4 +31,6 @@ export const refs = {
   addToWatchedBtn: document.querySelector('[data-watched-btn]'),
   addToQueueBtn: document.querySelector('[data-queue-btn]'),
   backdrop: document.querySelector('.backdrop'),
+
+  gallerySection: document.querySelector('.gallery')
 };
