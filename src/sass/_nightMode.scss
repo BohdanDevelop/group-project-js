@@ -1,0 +1,43 @@
+:root {
+  --clr-light: #ffffff;
+  --clr-dark: #453c3c;
+}
+
+.darkmode {
+  --clr-light: #fdffc4;
+  --clr-dark: #ffffff;
+
+  background-color: rgba(33, 33, 33, 20);
+  color: #ff7750;
+  fill: lightblue;
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  z-index: 100;
+  bottom: 56px;
+  right: 20px;
+  color: var(--clr-dark);
+  border: 2px solid currentColor;
+  padding: 4px;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  @include tab {
+    bottom: 45px;
+    right: 30px;
+  }
+}
+
+.click-here {
+  width: 100px;
+  right: 40px;
+  position: absolute;
+  bottom: 20px;
+  @include tab {
+    bottom: 10px;
+    right: 50px;
+  }
+}
