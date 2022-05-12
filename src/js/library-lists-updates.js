@@ -2,6 +2,15 @@ import { refs } from './refs.js';
 import { clickedMovie } from './movieModal.js';
 import { Notify } from 'notiflix';
 
+export let watchedList = [];
+export let queueList = [];
+
+refs.backdrop.addEventListener('click', addToQueueList);
+refs.backdrop.addEventListener('click', addToWatchedList);
+
+getQueueStorageState();
+getWatchedStorageState();
+
 function getWatchedStorageState() {
   const stored = localStorage.getItem('watched-list');
   if (stored === null) {
@@ -20,8 +29,6 @@ function getQueueStorageState() {
   queueList = parsed;
 }
 
-export let watchedList = [];
-export let queueList = [];
 
 function IfMovieisAdded(movieName, listType) {
   const list = localStorage.getItem(listType);
@@ -94,7 +101,7 @@ function addToQueueList(event) {
         Notify.warning('This movie has already been added to Queue');
       }
     } else {
-      return Notify.info('This movie is already in Queue');
+      return Notify.info('This movie is already in Watched');
     }
   }
 
