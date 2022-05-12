@@ -4,6 +4,7 @@ import noPosterImg from '../images/no-poster.jpg';
 
 import fetchAPI from './fetch';
 import { refs } from './refs';
+import { IfMovieisAdded } from './library-lists-updates';
 
 refs.gallery.addEventListener('click', onOpenMovieModal);
 refs.libraryGallery.addEventListener('click', onOpenMovieModal);
@@ -78,6 +79,20 @@ function markupModal(
   } else {
     poster_path = noPosterImg;
   }
+
+  let watchedBtnTxt;
+  let queueBtnTxt;
+
+  if (IfMovieisAdded(clickedMovie.title, 'watched-list')) {
+    watchedBtnTxt = 'remove from watched';
+  } else {
+    watchedBtnTxt = 'add to watched';
+  }
+  if (IfMovieisAdded(clickedMovie.title, 'queue-list')) {
+    queueBtnTxt = 'remove from queue';
+  } else {
+    queueBtnTxt = 'add to queue';
+  }
   return `<div class="modal__img--block">
       <div class="modal__img-wrapper">
         <img
@@ -122,8 +137,8 @@ function markupModal(
         ${overview}
       </p>
       <div class="modal__btn-block">
-        <button class="modal__btn modal__btn--orange" type="button" data-watched-btn>add to Watched</button>
-        <button class="modal__btn" type="button" data-queue-btn>add to queue</button>
+        <button class="modal__btn modal__btn--orange" type="button" data-watched-btn>${watchedBtnTxt}</button>
+        <button class="modal__btn" type="button" data-queue-btn>${queueBtnTxt}</button>
       </div>    
     </div>`;
 }
